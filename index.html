@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaBet Football Betting</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 10;
+            padding: 10;
+            background: url('kepek/Pusk%C3%A1s_Ar%C3%A9na_01.jpeg') center/cover no-repeat fixed;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 1em;
+            border-radius: 8px; /* Rounded corners */
+            margin-bottom: 20px; /* Add margin for spacing */
+            animation: fadeInOut 3s infinite; /* Animation: fadeInOut, duration: 3 seconds, infinite loop */
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; } /* Start with 0% opacity (text off) */
+            50% { opacity: 1; } /* Reach 100% opacity (text on) at 50% of the animation duration */
+            100% { opacity: 0; } /* End with 0% opacity (text off) */
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            display: none; /* Initially hide all sections */
+            margin-bottom: 20px;
+        }
+
+        section.active {
+            display: block; /* Show the active section */
+        }
+
+        h1, h2 {
+            color: black; /* Text color */
+            font-family: 'Roboto Condensed', sans-serif; /* Use Roboto Condensed font */
+        }
+
+        p {
+            color: #555; /* Dark gray text color */
+            font-family: 'Roboto Condensed', sans-serif; /* Use Roboto Condensed font */
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: gainsboro; /* Orange background color */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Roboto Condensed', sans-serif; /* Use Roboto Condensed font */
+        }
+
+        nav button.active {
+            background-color: purple; /* Purple background color for active button */
+            color: white; /* Text color for active button */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: 
+            color: #fff;
+        }
+
+        /* Hidden menu styles */
+        .hidden-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: ;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .hidden-menu.active {
+            display: block;
+        }
+
+        .hidden-menu button {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for the hamburger icon */
+        .hamburger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Replace "Login" button with hamburger icon -->
+    <div class="hamburger-icon" onclick="toggleHiddenMenu('login-register-menu')">☰</div>
+    <header>
+        <img src="kepek/Purple_Abstract_A_Letter_Free_Logo-removebg-preview.png" alt="AlphaBet Logo" style="max-width: 100%;">
+    </header>
+
+    <nav>
+        <button id="free-bets-button" class="active" onclick="toggleSection('free-bets')">Free Bets</button>
+        <button id="vip-bets-button" onclick="toggleSection('vip-bets')">VIP Bets</button>
+    </nav>
+
+    <!-- Hidden menu for Login and Register -->
+    <div id="login-register-menu" class="hidden-menu">
+        <button onclick="toggleSection('register')">Register</button>
+        <button onclick="toggleSection('login')">Login</button>
+        <button onclick="toggleSection('Cart')">Cart</button>
+    </div>
+
+    <main>
+        <section id="free-bets" class="active">
+            <h2 style="color: purple;">Free Bets</h2>
+            <p>Get started with our free bets and enjoy the excitement of football betting!</p>
+            <img src="free-bet-image.jpg" alt="Free Bet Image">
+        </section>
+
+        <section id="vip-bets">
+            <h2 style="color: purple;">VIP Bets</h2>
+            <p>Unlock exclusive VIP bets with high odds. Join our VIP club today!</p>
+            <img src="vip-bet-image.jpg" alt="VIP Bet Image">
+        </section>
+
+        <section id="register">
+            <h2>Register</h2>
+            <form>
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" name="register-username">
+
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" name="register-password">
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="login">
+            <h2>Login</h2>
+            <form>
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" name="login-username">
+
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password">
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        
+        <section id="Cart">
+            <h2>Your Cart is Empty</h2>
+            
+        </section>
+
+        <!-- Add more sections and content as needed -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AlphaBet Football Betting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+
+            document.querySelectorAll('button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(sectionId + '-button').classList.add('active');
+        }
+
+        function toggleHiddenMenu(menuId) {
+            const hiddenMenu = document.getElementById(menuId);
+            hiddenMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
